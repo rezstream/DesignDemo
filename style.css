@@ -248,7 +248,7 @@ button {
         color: var(--link-hover-color);
     }
 
-    .nav:has(#shownav:checked) .nav-list  {
+    .nav:has(#show-nav:checked) .nav-list  {
         border: 1px solid var(--link-hover-color);
         height: 7rem;
         opacity: 1;
