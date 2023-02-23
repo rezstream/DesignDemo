@@ -212,7 +212,7 @@ button {
     padding: .5rem;
 }
 
-#shownav {
+#show-nav {
     opacity: 0;
     height: 0;
     width: 0;
@@ -226,14 +226,14 @@ button {
         padding-right: 1.5rem;
     }
 
-    #shownav {
+    #show-nav {
         opacity: 1;
         height: 4rem;
         width: 4rem;
         color: var(--text-color);
     }
 
-    #shownav:before {
+    #show-nav:before {
         content:'\2630';
         display: inline;
         font-size: 4rem;
@@ -243,8 +243,8 @@ button {
         line-height: 1;
     }
 
-    #shownav:hover,
-    #shownav:checked {
+    #show-nav:hover,
+    #show-nav:checked {
         color: var(--link-hover-color);
     }
 
