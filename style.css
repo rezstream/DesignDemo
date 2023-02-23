@@ -1,0 +1,278 @@
+/* Define variables for colors */
+:root {
+    --primary-color: #4158D0;
+    --secondary-color: #FFCC70;
+    --transition-color: #C850C0;
+    --background-color: #FFF;
+    --background-gradient: linear-gradient(43deg, var(--primary-color) 0%, var(--transition-color) 46%, var(--secondary-color) 100%);
+    --text-color: #333;
+    --accent-text-color: #FFF;
+    --link-hover-color: var(--primary-color);
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #333;
+        --text-color: #FFF;
+        --link-hover-color: var(--secondary-color);
+    }
+}
+
+body {
+    color: var(--text-color);
+    background-color: var(--background-color);
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Apply global styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+button {
+    cursor: pointer;
+}
+
+/* Use flexbox and grid layout for responsiveness */
+.container {
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    position: absolute;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.logo {
+    display: block;
+    isolation: isolate;
+    position: relative;
+}
+
+.logo object {
+    height: 200px;
+    aspect-ratio: 1;
+    margin: -50px -25px;
+    position: relative;
+    z-index: -1;
+}
+
+.nav {
+    display: flex;
+}
+
+.nav-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-item {
+    display: inline;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: var(--text-color);
+    margin-left: .5rem;
+    padding: .5rem;
+    border-radius: .25rem;
+    text-align: center;
+    text-decoration: none;
+}
+
+.nav-link:hover {
+    color: var(--link-hover-color);
+}
+
+.main {
+    display: flex;
+    position: relative;
+    background-color: #4158D0;
+    background-image: var(--background-gradient);
+    height: fit-content;
+}
+
+.main .button {
+    position: absolute;
+    margin: auto;
+    bottom: 2rem;
+    font-size: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2rem;
+    border: var(--accent-text-color) .25rem solid;
+    padding: 0 1rem;
+}
+
+.main .button:hover {
+    transform: translateX(-50%) scale(1.05);
+}
+
+.hero-image {
+    width: 100%;
+    aspect-ratio: 4.2;
+    object-fit: cover;
+    mix-blend-mode: overlay;
+}
+
+.content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    
+}
+
+.card {
+    border-radius: .25rem;
+    box-shadow: 0 .125rem .25rem rgba(0, 0, 0, .1);
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, .3);
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: min-content;
+    display: flex;
+    flex-direction: column;
+    color: var(--text-color);
+    text-align: left;
+}
+
+.card-image {
+    width: 300px;
+    aspect-ratio: 1;
+    object-fit: cover;
+    filter: grayscale(80%);
+    transition: 1s;
+}
+
+.card:focus,
+.card:hover {
+    transform: scale(1.05);
+    transition: 1s;
+}
+
+.card:focus .card-image,
+.card:hover .card-image {
+    filter: grayscale(0);
+}
+
+.card-body {
+    padding: .5rem;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    margin-bottom: .25rem;
+}
+
+.card-text {
+    font-size: .875rem;
+    line-height: 1.5;
+}
+
+.button {
+    display: inline-block;
+    text-decoration: none;
+    color: var(--accent-text-color);
+    background-color: var(--primary-color);
+    background-image: var(--background-gradient);
+    padding: .5rem;
+    border-radius: .25rem;
+    transition: .3s ease-in-out;
+}
+
+.button:hover {
+    transform: scale(1.05);
+}
+
+
+.footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--accent-text-color);
+    background-color: var(--primary-color);
+    background-image: var(--background-gradient);
+    padding: .5rem;
+}
+
+#shownav {
+    opacity: 0;
+    height: 0;
+    width: 0;
+    appearance: unset;
+}
+
+
+@media (max-width: 600px) {
+    .nav  {
+        position: relative;
+        padding-right: 1.5rem;
+    }
+
+    #shownav {
+        opacity: 1;
+        height: 4rem;
+        width: 4rem;
+        color: var(--text-color);
+    }
+
+    #shownav:before {
+        content:'\2630';
+        display: inline;
+        font-size: 4rem;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        line-height: 1;
+    }
+
+    #shownav:hover,
+    #shownav:checked {
+        color: var(--link-hover-color);
+    }
+
+    .nav:has(#shownav:checked) .nav-list  {
+        border: 1px solid var(--link-hover-color);
+        height: 7rem;
+        opacity: 1;
+    }
+
+    .nav-list {
+        border: 1px solid transparent;
+        padding: .25rem 0;
+        position: absolute;
+        right: .5rem;
+        z-index: 1;
+        top: 100%;
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        transition: .5s;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--background-color);
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-item {
+        display: block;
+        padding: .25rem;
+    }
+}

@@ -1,0 +1,24 @@
+@import "style.css";
+
+#eazHLWTwkio2 path {
+    fill: var(--primary-color)
+}
+
+#eazHLWTwkio11 path {
+    fill: var(--secondary-color)
+}
+
+@media (prefers-color-scheme: dark) {
+    #eazHLWTwkio25 path,
+    #eazHLWTwkio29 path,
+    #eazHLWTwkio33 path,
+    #eazHLWTwkio37 path,
+    #eazHLWTwkio41 path,
+    #eazHLWTwkio45 path,
+    #eazHLWTwkio49 path,
+    #eazHLWTwkio53 path,
+    #eazHLWTwkio57 path,
+    #eazHLWTwkio61 path {
+        fill: var(--text-color);
+    }
+}
